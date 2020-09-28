@@ -1,0 +1,50 @@
+<!--
+    Un plantilla HTML.
+    Aquí se debe indicar qué modelos que deseamos mostrar y coger la información de la BBDD
+-->
+<!--para importar el css e imagenes
+Además es necesario modificar el fichero urls.py y añadir la ruta en la que están los archivos estaticos
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mi primera página en django</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+
+<body>
+    <div class="page-header">
+        <h1><a href="/">Django Girls Blog</a></h1>
+    </div>
+    <div>
+        <h2>1. Muestro la lista de objetos</h2>
+        {{posts}}
+    </div>
+    <div>
+        <h2>
+            2. Bucle foreach para mostrar el nombre de los objetos
+        </h2>
+        {% for post in posts %} {{ post }}{% endfor %}
+    </div>
+    <h2>
+        3. Bucle foreach para mostrar los objetos y sus atributos
+    </h2>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

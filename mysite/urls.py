@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+#los siguientes imports se deben cargar para utilizar los ficheros static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
 ]
+
+#el siguiente código es para importar las url de los ficheros staticos a la array urlpatterns
+urlpatterns += staticfiles_urlpatterns()

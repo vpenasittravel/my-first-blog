@@ -3,4 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
+    #post/ significa que la URL debería empezar con la palabra post seguida por una /.
+    #<int:pk> significa que Django buscará un número entero y se lo pasará a la vista en una variable llamada pk.
+    path('post/<int:pk>/', views.post_detail, name='post_detail'),
 ]
