@@ -1,12 +1,42 @@
+<!--
+    Un plantilla HTML.
+    Aquí se debe indicar qué modelos que deseamos mostrar y coger la información de la BBDD
+-->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mi primera página en django</title>
 </head>
+
 <body>
-    {{nombre}}
+    <h1>TITULO PRINCIPAL DE MI LANDING</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ut beatae ipsa ipsum fugit sint reprehenderit
+        architecto, recusandae ab illo optio sequi sed suscipit obcaecati perferendis tempora, minus porro eveniet.</p>
+    <div>
+        <h2>1. Muestro la lista de objetos</h2>
+        {{posts}}
+    </div>
+    <div>
+        <h2>
+            2. Bucle foreach para mostrar el nombre de los objetos
+        </h2>
+        {% for post in posts %} {{ post }}{% endfor %}
+    </div>
+    <h2>
+        3. Bucle foreach para mostrar los objetos y sus atributos
+    </h2>
+    {% for post in posts %}
+    <div>
+        <p> publicado: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p><!--salto de línea-->
+        <hr>
+    </div>
+    {% endfor %}
 </body>
+
 </html>
